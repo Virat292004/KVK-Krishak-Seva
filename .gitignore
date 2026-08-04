@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.env
+*.egg-info/
+
+# ML models (regenerated on startup)
+backend/models/*.pkl
+
+# Node
+node_modules/
+build/
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
