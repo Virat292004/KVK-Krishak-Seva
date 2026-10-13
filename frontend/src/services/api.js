@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: '/api' });
+const API = axios.create({
+  baseURL: process.env.REACT_APP_API_URL || '/api'
+});
 
 export const getWeather      = (district) => API.get(`/data/weather?district=${district}`);
 export const getMarket       = (district) => API.get(`/data/market?district=${district}`);

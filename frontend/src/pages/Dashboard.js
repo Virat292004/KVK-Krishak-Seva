@@ -39,11 +39,13 @@ export default function Dashboard({ district }) {
 
   const { weather, market_prices, advisory, schemes } = data;
   const forecast = weather?.forecast_7day || [];
-  const topPrices = (market_prices || []).slice(0, 6).map(p => ({
-    crop: p.crop.replace(' (', '\n('),
-    price: p.market_price,
-    msp: p.msp
-  }));
+  const topPrices = (Array.isArray(market_prices) ? market_prices : [])
+    .slice(0, 6)
+    .map(p => ({
+      crop: (p.crop || 'Unknown crop').replace(' (', '\n('),
+      price: p.market_price ?? 0,
+      msp: p.msp ?? 0
+    }));
 
   return (
     <div>
